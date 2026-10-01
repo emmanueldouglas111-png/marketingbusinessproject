@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* header section style */
+header {
+  background-color: bisque;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+    font-size: 2.2rem;
+}
+.logo-links {
+    display: flex;
+    gap: 2.5rem;
+}
+li {
+    list-style: none;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.logo-btn button {
+    outline: 0;
+    border: 0;
+    padding: 10px 20px;
+}
