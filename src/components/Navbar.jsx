@@ -1,45 +1,51 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../CartContext";
 
 const Navbar = () => {
   const { cartCount } = useCart();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
-    <div>
-      <header className="navbar">
+    <header className="navbar">
 
-        <h1 className="logo">EmmyTech</h1>
+      <Link to="/" className="logo" onClick={closeMenu}>
+        EmmyTech
+      </Link>
 
-        <nav>
-          <ul className="logo-links">
+      <nav className={menuOpen ? "nav-menu active" : "nav-menu"}>
+        <Link to="/" onClick={closeMenu}>Home</Link>
 
-            <li>
-              <Link to="/">Home</Link>
-            </li>
+        <Link to="/about" onClick={closeMenu}>About</Link>
 
-            <li>
-              <Link to="/about">About</Link>
-            </li>
+        <Link to="/contact" onClick={closeMenu}>Contact</Link>
 
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
+        <Link to="/cart" onClick={closeMenu}>
+          🛒 Cart ({cartCount})
+        </Link>
 
-            <li>
-              <Link to="/cart">
-                Cart ({cartCount})
-              </Link>
-            </li>
+        <button className="mobile-login" onClick={closeMenu}>
+          Login
+        </button>
+      </nav>
 
-          </ul>
-        </nav>
+      <div className="desktop-login">
+        <button>Login</button>
+      </div>
 
-        <div className="logo-btn">
-          <button>Login</button>
-        </div>
+      <button
+        className="menu-toggle"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle navigation"
+      >
+        ☰
+      </button>
 
-      </header>
-    </div>
+    </header>
   );
 };
 
