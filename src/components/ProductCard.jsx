@@ -1,37 +1,37 @@
-import { useCart } from "../CartContext";
-
-const ProductCard = ({ product }) => {
-  const { addToCart } = useCart();
-
+import React from "react";
+function ProductCard({ product, onAddToCart }) {
   return (
     <div className="product-card">
-
-      <img
-        src={product.image}
-        alt={product.name}
-      />
-
-      <div className="product-info">
-
-        <h3>{product.name}</h3>
-
-        <p>{product.description}</p>
-
-        <div className="product-price">
-          ₦{Number(product.price).toLocaleString()}
-        </div>
-
-        <button
-          className="add-cart"
-          onClick={() => addToCart(product)}
-        >
-          Add to Cart
-        </button>
-
+      <div className="product-image-container">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="product-image"
+        />
       </div>
 
+      <div className="product-info">
+        <h3>{product.name}</h3>
+
+        <p className="product-description">
+          {product.description}
+        </p>
+
+        <div className="product-bottom">
+          <span className="product-price">
+            ₦{product.price.toLocaleString()}
+          </span>
+
+          <button
+            className="add-cart-btn"
+            onClick={() => onAddToCart(product)}
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
     </div>
   );
-};
+}
 
 export default ProductCard;

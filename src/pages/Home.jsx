@@ -33,8 +33,8 @@ const Home = () => {
   ];
 
   return (
-    <div>
-
+    <div> 
+      
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
@@ -49,7 +49,7 @@ const Home = () => {
               Discover quality products at affordable prices.
               Shop from the comfort of your home.
             </p>
-
+]
             <div className="hero-buttons">
 
           <button

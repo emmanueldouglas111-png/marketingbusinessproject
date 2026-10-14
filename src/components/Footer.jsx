@@ -1,3 +1,5 @@
+import { whatsappLink } from "../whatsapp";
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -22,6 +24,15 @@ const Footer = () => {
           <h3>Contact Us</h3>
           <p>Email: info@EmmyTech.com</p>
           <p>Phone: +234 806 814 6744</p>
+          <p>
+            <a
+              href={whatsappLink("Hello EmmyTech, I have a question.")}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chat on WhatsApp
+            </a>
+          </p>
           <p>Nigeria</p>
         </div>
 

@@ -1,4 +1,5 @@
 import { useCart } from "../CartContext";
+import { whatsappLink, buildOrderMessage } from "../whatsapp";
 
 const Cart = () => {
 
@@ -13,6 +14,14 @@ const Cart = () => {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+
+  const orderOnWhatsApp = () => {
+    window.open(
+      whatsappLink(buildOrderMessage(cart, total)),
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
 
   return (
     <div className="cart-page">
@@ -85,8 +94,8 @@ const Cart = () => {
               Total: ₦{total.toLocaleString()}
             </h2>
 
-            <button className="checkout-btn">
-              Proceed to Checkout
+            <button className="checkout-btn" onClick={orderOnWhatsApp}>
+              Order on WhatsApp
             </button>
 
           </div>
